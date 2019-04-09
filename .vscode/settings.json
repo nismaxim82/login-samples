@@ -1,0 +1,9 @@
+{
+    "git.ignoreLimitWarning": true,
+    "editor.snippetSuggestions": "top",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": false
+    },
+    "tslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+}
