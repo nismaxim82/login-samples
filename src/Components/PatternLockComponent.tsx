@@ -2,7 +2,11 @@ import { Svg } from 'expo'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
-const { Line } = Svg
+// https://github.com/AudyOdi/react-native-android-pattern-lock-screen/blob/master/src/PatternLockScreen.js
+const { Line, Circle } = Svg
+const DEFAULT_DOT_RADIUS = 5
+const SNAP_DOT_RADIUS = 10
+const SNAP_DURATION = 100
 
 interface IPatternLockState {
     width: number,
@@ -10,6 +14,18 @@ interface IPatternLockState {
 }
 
 class PatternLockComponent extends React.Component<{}, IPatternLockState> {
+    private _dots = [
+        { x: 65, y: 65 },
+        { x: 130, y: 65 },
+        { x: 185, y: 65 },
+        { x: 65, y: 130 },
+        { x: 130, y: 130 },
+        { x: 185, y: 130 },
+        { x: 65, y: 185 },
+        { x: 130, y: 185 },
+        { x: 185, y: 185 }
+    ]
+
     constructor(props: any) {
         super(props)
 
@@ -18,11 +34,7 @@ class PatternLockComponent extends React.Component<{}, IPatternLockState> {
             height: 0,
         }
     }
-    public onPageLayout = (event) => {
-        const { width, height } = event.nativeEvent.layout
-        console.log(width, height)
-        this.setState({ width, height })
-    }
+
     public render() {
         return (
             <View
@@ -40,7 +52,13 @@ class PatternLockComponent extends React.Component<{}, IPatternLockState> {
                     />
                 </Svg>
             </View>
-        )//
+        )
+    }
+
+    private onPageLayout = (event) => {
+        const { width, height } = event.nativeEvent.layout
+        console.log(width, height)
+        this.setState({ width, height })
     }
 }
 
