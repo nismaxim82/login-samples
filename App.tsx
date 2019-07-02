@@ -1,21 +1,22 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
+import styles from './App.css'
 
-export default class App extends React.Component {
-  public render() {
-    return (
-      <View style={styles.container}>
-        <Text>Test css-modules!</Text>
-      </View>
-    )
-  }
-}
+console.log(styles)
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+const App = () => (
+  <View style={styles.container} >
+    <Text>Test css-modules!</Text>
+  </View>
+)
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// })
+
+export default App
