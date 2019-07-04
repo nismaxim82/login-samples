@@ -1,14 +1,16 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import styles from './App.css'
+// import * as styles from './App.css'
+// tslint:disable-next-line:no-var-requires
+const styles = require('./App.css')
 
 console.log(styles)
 
-const App = () => (
-  <View style={styles.container} >
+const App = () => {
+  return <View className={styles.container} >
     <Text>Test css-modules!</Text>
   </View>
-)
+}
 
 // const styles = StyleSheet.create({
 //   container: {
