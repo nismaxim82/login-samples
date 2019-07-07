@@ -1,3 +1,7 @@
+div[class^=css-text] {
+    color: inherit;
+}
+
 .container {
     flex: 1;
     color: red;
