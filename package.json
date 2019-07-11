@@ -28,6 +28,8 @@
     "babel-plugin-react-native-classname-to-style": "^1.2.2",
     "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
     "babel-preset-expo": "^5.1.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "mini-css-extract-plugin": "^0.7.0",
     "mobx": "^5.10.1",
     "mobx-react": "^6.1.1",
     "mobx-react-devtools": "^6.1.1",
@@ -36,7 +38,8 @@
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "webpack-merge": "^4.2.1"
   },
   "private": true
 }

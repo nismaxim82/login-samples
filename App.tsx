@@ -5,7 +5,7 @@ import styles from './App.css'
 console.log(styles)
 
 const App = () => {
-  return <View className={styles.container}>
+  return <View className="container">
     <Text>Test css-modules!</Text>
   </View>
 }

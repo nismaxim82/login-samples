@@ -4,7 +4,7 @@ div[class^=css-text] {
 
 .container {
     flex: 1;
-    color: red;
+    color: green;
     background-color: #fff;
     align-items: center;
     justify-content: center;
