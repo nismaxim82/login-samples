@@ -1,5 +1,6 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 const merge = require('webpack-merge');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -11,7 +12,7 @@ module.exports = async function (env, argv) {
     if (existedCssRuleIndex) {
         oneOfRule.oneOf.splice(existedCssRuleIndex, 1);
     }
-    const cssLoaderConfig = {
+    const extendedConfig = {
         optimization: {
             splitChunks: {
                 cacheGroups: {
@@ -29,6 +30,13 @@ module.exports = async function (env, argv) {
                 filename: '[name].css',
             }),
         ],
+        resolve: {
+            alias: {
+                "react-native/Libraries/Renderer/shims/ReactNativePropRegistry":
+                    "react-native-web/dist/modules/ReactNativePropRegistry",
+                "react-native": "react-native-web"
+            }
+        },
         module: {
             rules: [
                 {
@@ -40,69 +48,35 @@ module.exports = async function (env, argv) {
                         },
                     }, 'css-loader'],
                 },
+                {
+                    test: /\.[jt]sx?$/,
+                    use: {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["babel-preset-expo"],
+                            plugins: ["@babel/plugin-proposal-class-properties"],
+                            cacheDirectory: true
+                        }
+                    },
+                    include: [
+                        path.resolve("node_modules/native-base-shoutem-theme"),
+                        path.resolve("node_modules/react-navigation"),
+                        path.resolve("node_modules/react-native-easy-grid"),
+                        path.resolve("node_modules/react-native-drawer"),
+                        path.resolve("node_modules/react-native-safe-area-view"),
+                        path.resolve("node_modules/react-native-vector-icons"),
+                        path.resolve(
+                            "node_modules/react-native-keyboard-aware-scroll-view"
+                        ),
+                        path.resolve("node_modules/react-native-web"),
+                        path.resolve("node_modules/react-native-tab-view"),
+                        path.resolve("node_modules/static-container")
+                    ]
+                },
             ],
         },
     };
 
-    const result = merge(config, cssLoaderConfig);
+    const result = merge(config, extendedConfig);
     return result;
-
-    // config.plugins.push(new ExtractTextPlugin('style.css', { allChunks: true }));
-    // // if (!config.module.loaders) {
-    // //     config.module.loaders = [];
-    // // }
-    // // config.module.loaders.push({
-    // //     test: /\.css$/,
-    // //     loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
-    // // });
-    // if (existedCssRule) {
-    //     // console.log(existedCssRule.test.toString());
-    //     // existedCssRule.test = /\.css$/;
-    //     existedCssRule.use = [
-    //         {
-    //             test: /\.css$/,
-    //             loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
-    //         }
-    //     ]
-    //     // existedCssRule.use = [
-    //     //     { loader: "style-loader" },
-    //     //     {
-    //     //         loader: "css-loader",
-    //     //         options: {
-    //     //             modules: {
-    //     //                 mode: 'local',
-    //     //                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
-    //     //                 context: path.resolve(__dirname, 'src'),
-    //     //                 hashPrefix: 'my-custom-hash',
-    //     //             },
-    //     //             // sourceMap: true,
-    //     //         }
-    //     //     }
-    //     // ];
-    //     // console.log(existedCssRule);
-    // } else {
-    //     config.module.rules.push({
-    //         test: /\.css$/,
-    //         use: ["css-loader"],
-    //         options: {
-    //             modules: 'global',
-    //         },
-    //     });
-    // }
-    // // throw 'HERE IS DEBUG';
-    // // If you want to add a new alias to the config.
-    // // config.resolve.alias['moduleA'] = 'moduleB';
-
-    // // Maybe you want to turn off compression in dev mode.
-    // // if (config.mode === 'development') {
-    // //     config.devServer.compress = false;
-    // // }
-
-    // // Or prevent minimizing the bundle when you build.
-    // // if (config.mode === 'production') {
-    // //     config.optimization.minimize = false;
-    // // }
-
-    // // Finally return the new config for the CLI to use.
-    // return config;
 };
