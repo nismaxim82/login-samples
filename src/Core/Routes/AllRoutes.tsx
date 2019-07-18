@@ -1,7 +1,7 @@
-import FaceRecognitionComponent from '../../Components/FaceRecognitionComponent'
-import FingerPrintComponent from '../../Components/FingerPrintComponent'
-import HomeComponent from '../../Components/HomeComponent'
-import PatternLockComponent from '../../Components/PatternLockComponent'
+import FaceRecognitionComponent from '../../Components/Views/FaceRecognitionView'
+import FingerPrintComponent from '../../Components/Views/FingerPrintView'
+import HomeComponent from '../../Components/Views/Home/HomeView'
+import PatternLockComponent from '../../Components/Views/PatternLockView'
 
 const routes = [
     {

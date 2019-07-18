@@ -1,0 +1,18 @@
+.home-title {
+    padding: 10px;
+}
+
+.accordion-content {
+    flex-direction: row;
+    padding: 10px;
+}
+
+.accordion-content__icon {
+    min-width: 64px;
+    min-height: 64px;
+    margin-right: 10px;
+}
+
+.accordion-content__text {
+    color: red;
+}

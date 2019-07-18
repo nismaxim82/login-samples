@@ -1,11 +1,9 @@
 div[class^=css-text] {
     color: inherit;
+    font-family: Roboto;
 }
 
-.container {
-    flex: 1;
-    color: green;
-    background-color: #fff;
-    align-items: center;
-    justify-content: center;
+.footer__icon {
+    max-width: 25px;
+    max-height: 25px;
 }

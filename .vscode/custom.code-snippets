@@ -13,5 +13,22 @@
 			"console.log($1)"
 		],
 		"description": "Log output to console"
+	},
+	"React functional component": {
+		// "scope": "javascript,typescript",
+		"prefix": "rhc",
+		"body": [
+			"import React from 'react'",
+			"",
+			"const $1 = () => {",
+			"return (",
+			"<></>",
+			")",
+			"}",
+			"",
+			"export default $1",
+			""
+		],
+		"description": "Quick create React functional component"
 	}
 }
