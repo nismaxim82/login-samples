@@ -23,7 +23,7 @@ const Home = () => {
         {
             title: 'Face recognition',
             icon: require('../../../Images/face_recognition.png'),
-            content: 'A screen that shows an example login using face recognition'
+            content: 'A screen that shows an example of a login using a face recognition'
         }
     ]
 

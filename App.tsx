@@ -1,10 +1,13 @@
 import { Font } from 'expo'
-import { Button, Container, Content, Footer, FooterTab, StyleProvider, Thumbnail } from 'native-base'
+// import { Provider } from 'mobx-react'
+import { Container, Content, StyleProvider } from 'native-base'
 import React, { useEffect } from 'react'
 import styles from './App.css'
+import PartFooter from './src/Components/Parts/PartFooter'
 import PartHeader from './src/Components/Parts/PartHeader'
 import { Route, Router } from './src/Core/Routes'
 import routes from './src/Core/Routes/AllRoutes'
+// import stores from './src/Core/Store'
 import getTheme from './src/NativeBaseTheme/components'
 
 // TODO(developing): remove this row or add some comment on why this line is there
@@ -26,6 +29,7 @@ const App = () => {
 
   return (
     <StyleProvider style={getTheme()}>
+      {/* <Provider {...stores}> */}
       <Router>
         <Container style={{ height: '100%' }}>
           <PartHeader />
@@ -40,30 +44,10 @@ const App = () => {
                 />)
             }
           </Content>
-          <Footer>
-            <FooterTab>
-              <Button>
-                <Thumbnail square
-                  source={{ uri: require('./src/Images/fingerprint.png') }}
-                  className="footer__icon"
-                />
-              </Button>
-              <Button>
-                <Thumbnail square
-                  source={{ uri: require('./src/Images/pattern_lock.png') }}
-                  className="footer__icon"
-                />
-              </Button>
-              <Button>
-                <Thumbnail square
-                  source={{ uri: require('./src/Images/face_recognition.png') }}
-                  className="footer__icon"
-                />
-              </Button>
-            </FooterTab>
-          </Footer>
+          <PartFooter />
         </Container>
       </Router>
+      {/* </Provider> */}
     </StyleProvider >
   )
 }

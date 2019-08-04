@@ -2,8 +2,3 @@ div[class^=css-text] {
     color: inherit;
     font-family: Roboto;
 }
-
-.footer__icon {
-    max-width: 25px;
-    max-height: 25px;
-}
