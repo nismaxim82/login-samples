@@ -14,17 +14,17 @@ interface IPatternLockState {
 }
 
 class PatternLockComponent extends React.Component<{}, IPatternLockState> {
-    private _dots = [
-        { x: 65, y: 65 },
-        { x: 130, y: 65 },
-        { x: 185, y: 65 },
-        { x: 65, y: 130 },
-        { x: 130, y: 130 },
-        { x: 185, y: 130 },
-        { x: 65, y: 185 },
-        { x: 130, y: 185 },
-        { x: 185, y: 185 }
-    ]
+    // private _dots = [
+    //     { x: 65, y: 65 },
+    //     { x: 130, y: 65 },
+    //     { x: 185, y: 65 },
+    //     { x: 65, y: 130 },
+    //     { x: 130, y: 130 },
+    //     { x: 185, y: 130 },
+    //     { x: 65, y: 185 },
+    //     { x: 130, y: 185 },
+    //     { x: 185, y: 185 }
+    // ]
 
     constructor(props: any) {
         super(props)
