@@ -1,7 +1,8 @@
-import { Accordion, H1, Text, Thumbnail, View } from 'native-base'
+import { Accordion, H1, Icon, Text, View } from 'native-base'
 import React, { useEffect } from 'react'
 import styles from './HomeView.css'
 
+// TODO(developing): remove this row or add some comment on why this line is there
 const s = styles
 
 const Home = () => {
@@ -12,17 +13,17 @@ const Home = () => {
     const dataArray = [
         {
             title: 'Finger print',
-            icon: require('../../../Images/fingerprint.png'),
+            icon: 'fingerprint',
             content: 'A screen that shows an example of a login using a finger on the screen'
         },
         {
             title: 'Pattern lock',
-            icon: require('../../../Images/pattern_lock.png'),
+            icon: 'lock-pattern',
             content: 'A screen that shows an example of a login using a password for the figures of lines'
         },
         {
             title: 'Face recognition',
-            icon: require('../../../Images/face_recognition.png'),
+            icon: 'face-recognition',
             content: 'A screen that shows an example of a login using a face recognition'
         }
     ]
@@ -30,8 +31,8 @@ const Home = () => {
     const renderContent = (item) => {
         return (
             <View className="accordion-content">
-                <Thumbnail square
-                    source={{ uri: item.icon }}
+                <Icon
+                    name={item.icon}
                     className="accordion-content__icon"
                 />
                 <Text className="accordion-content__text">

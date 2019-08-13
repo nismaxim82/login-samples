@@ -1,6 +1,6 @@
 import { Button, Footer, FooterTab, Thumbnail } from 'native-base'
 import React from 'react'
-import styles from './index.css'
+import styles from './PartFooter.css'
 
 // TODO(developing): remove this row or add some comment on why this line is there
 const s = styles

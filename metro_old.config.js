@@ -1,9 +1,12 @@
 const { getDefaultConfig } = require("metro-config");
 
 module.exports = (async () => {
+  const config = await getDefaultConfig();
+  // console.log('HERERERE');
+  return config;
   const {
     resolver: { sourceExts }
-  } = await getDefaultConfig();
+  } = config;
   return {
     transformer: {
       babelTransformerPath: require.resolve(

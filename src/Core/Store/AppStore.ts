@@ -1,10 +1,8 @@
-import { decorate } from 'mobx'
+import { observable } from 'mobx'
 
 class AppStore {
+    @observable
     public title = 'Logins sample'
 }
-
-decorate(AppStore, {
-})
 
 export default AppStore
