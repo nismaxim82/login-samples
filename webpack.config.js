@@ -8,7 +8,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = async function (env, argv) {
     const config = await createExpoWebpackConfigAsync(env, argv);
     const oneOfRule = config.module.rules.find(r => r.oneOf && r.oneOf.length);
-    const existedCssRuleIndex = oneOfRule.oneOf.findIndex(o => o.use && o.use.length && o.use.some(r2 => r2 === 'css-loader'));
+    const existedCssRuleIndex = oneOfRule.oneOf.findIndex(o => o.use && o.use.length && o.use.some(r2 => r2.toString().indexOf('css-loader') !== -1));
     if (existedCssRuleIndex) {
         oneOfRule.oneOf.splice(existedCssRuleIndex, 1);
     }
@@ -27,7 +27,7 @@ module.exports = async function (env, argv) {
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: '[name].css',
+                filename: '[name].[hash].css',
             }),
         ],
         resolve: {
@@ -54,7 +54,10 @@ module.exports = async function (env, argv) {
                         loader: "babel-loader",
                         options: {
                             presets: ["babel-preset-expo"],
-                            plugins: ["@babel/plugin-proposal-class-properties"],
+                            plugins: [
+                                "@babel/plugin-proposal-class-properties",
+                                "@babel/plugin-transform-modules-commonjs"
+                            ],
                             cacheDirectory: true
                         }
                     },

@@ -1,1 +1,2 @@
-export { Platform } from 'react-native';
+export { Platform } from 'react-native'
+
