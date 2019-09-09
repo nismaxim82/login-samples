@@ -1,4 +1,4 @@
-import { Button, Footer, FooterTab, Thumbnail } from 'native-base'
+import { Button, Footer, FooterTab, Icon } from 'native-base'
 import React from 'react'
 import styles from './PartFooter.css'
 
@@ -10,20 +10,20 @@ const PartFooter = () => {
         <Footer>
             <FooterTab>
                 <Button>
-                    <Thumbnail square
-                        source={{ uri: require('../../../Images/fingerprint.png') }}
+                    <Icon
+                        name="fingerprint"
                         className="footer__icon"
                     />
                 </Button>
                 <Button>
-                    <Thumbnail square
-                        source={{ uri: require('../../../Images/pattern_lock.png') }}
+                    <Icon
+                        name="lock-pattern"
                         className="footer__icon"
                     />
                 </Button>
                 <Button>
-                    <Thumbnail square
-                        source={{ uri: require('../../../Images/face_recognition.png') }}
+                    <Icon
+                        name="face-recognition"
                         className="footer__icon"
                     />
                 </Button>

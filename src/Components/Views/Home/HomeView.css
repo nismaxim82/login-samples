@@ -11,8 +11,10 @@
     min-width: 64px;
     min-height: 64px;
     margin-right: 10px;
+    text-align: center;
+    font-size: 44px !important;
 }
 
 .accordion-content__text {
-    color: red;
+    /* color: red; */
 }

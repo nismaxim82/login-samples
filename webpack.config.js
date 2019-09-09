@@ -32,8 +32,8 @@ module.exports = async function (env, argv) {
         ],
         resolve: {
             alias: {
-                "react-native/Libraries/Renderer/shims/ReactNativePropRegistry":
-                    "react-native-web/dist/modules/ReactNativePropRegistry",
+                // "react-native/Libraries/Renderer/shims/ReactNativePropRegistry":
+                //     "react-native-web/dist/modules/ReactNativePropRegistry",
                 "react-native": "react-native-web"
             }
         },
